@@ -1,0 +1,156 @@
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+header h1 {
+    background-color: #311f6a;
+    margin: 0;
+    color: white;
+    padding: 20px;
+    font-size: 1.0em;
+    text-align: center;
+    
+}
+   
+nav {
+    background-color: #333333;
+    padding: 10px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration:none;
+    font-size: 0.8em;
+}
+nav a:hover {
+    text-decoration: overline;
+}
+
+.active {
+    color: rgb(252, 252, 161);
+    font-style:oblique;    
+}
+
+main {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px;    
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.card img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    float: right;
+}
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+}
+
+.card h2 {
+    font-size: 0.9em;
+    background-color: #311f6a;
+    padding: 20px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card p {
+    font-size: 0.8em;
+    color: #333;
+    text-align: left;
+}
+
+.country h3 {
+    font-size: 1em;
+    border-bottom: solid 1px #311f6a;
+    padding-bottom: 10px;
+    padding-left: 200px;
+}
+
+.country figure {
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    float: left;
+}
+.country figure figcaption {
+    font-size: 0.8em;
+    color: #050505e7;
+    text-align: center;
+}
+
+.card-2 {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+        
+}
+
+.card-2 h2 {
+    font-size: 0.9em;
+    background-color: #311f6a;
+    padding: 20px;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+.card-2 ul {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+
+}
+
+footer {
+    background-color: #311f6a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#lastModified {
+    font-size: 0.8em;
+    color: #cefa08;
+    
+}
+
+#year {
+    font-size: 0.9em;
+    color: white;
+    margin-top: 0px;
+}
