@@ -11,7 +11,7 @@ const lastModifiedDate = document.lastModified;
 
 // Insert last modified date into the second <p> in the footer
 const secondPara = footer.querySelectorAll("p")[1];
-secondPara.textContent = `LastModified: ${lastModifiedDate}`;
+secondPara.textContent = `Last Modified: ${lastModifiedDate}`;
 
 const hamButton = document.querySelector("#menu");
 const navigation = document.querySelector(".navigation");
