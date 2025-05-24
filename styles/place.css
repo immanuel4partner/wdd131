@@ -1,0 +1,151 @@
+:root {
+    --background-color: #b00a10;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: var(--background-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.hero picture img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.info {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+}
+
+.info h2 {
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--background-color);
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding: 1rem;
+
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: space-between;
+    background-color: var(--background-color);
+    margin-bottom: 0.5rem;
+    padding: 2px;
+}
+
+/* Hide by default */
+.mobile-icon {
+    display: none;
+}
+
+/* Top-left and bottom-right placement on large screens */
+@media (min-width: 1000px) {
+    .info.data {
+        top: 70px;
+        left: 20px;
+    }
+
+    .info.weather {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .hero {
+        height: 100vh;
+    }
+
+    .flex h2::after {
+        content: "🌤";
+        font-size: 1.8rem;
+        margin-left: 4rem;
+        vertical-align: middle;
+    }
+}
+
+/* Responsive fallback for smaller screens */
+@media (max-width: 999px) {
+    .info {
+        position: relative;
+        margin: 1rem auto;
+        max-width: 90%;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobile-icon {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+/* Rows and Columns for content display */
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.col {
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--background-color);
+    color: white;
+    margin-top: 2rem;
+}
+
+#lastModified {
+    font-size: 0.8em;
+    color: #cefa08;
+}
