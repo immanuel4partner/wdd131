@@ -1,0 +1,121 @@
+:root {
+    --background-color: #4a148c;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f1f8;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #e8d9f3;
+    /* light purple */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    background-color: #6a1b9a;
+    /* deep purple */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.optional {
+    color: #0b70dd;
+    /* blue for optional fields */
+    font-style: italic;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #007bff;
+    /* blue for optional */
+}
+
+.stars label,
+.checkboxes label {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: normal;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 2rem auto 0;
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4a148c;
+}
+
+@media (max-width: 600px) {
+    form {
+        margin: 1rem;
+        padding: 1rem;
+    }
+}
+
+footer {
+    background: var(--background-color);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 30px;
+    line-height: 1.2;
+    margin-top: 20px;
+    font-size: 1em;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+#lastModified {
+    font-size: 0.8em;
+    color: yellow;
+}
+
+#year {
+    font-size: 0.9em;
+    color: white;
+    margin-top: 0;
+}
