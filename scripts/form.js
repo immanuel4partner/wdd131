@@ -1,32 +1,29 @@
-// Get the current year
-const currentYear = new Date().getFullYear();
-
-// Insert current year into the first <p> in the footer
-const footer = document.querySelector("footer");
-const firstPara = footer.querySelector("p");
-firstPara.textContent = `© ${currentYear} | NJIBIE Immanuel | Nigeria`;
-
-// Get the last modified date of the document
-const lastModifiedDate = document.lastModified;
-
-// Insert last modified date into the second <p> in the footer
-const secondPara = footer.querySelectorAll("p")[1];
-secondPara.textContent = `Last Modified: ${lastModifiedDate}`;
-
-
-// Product array
-const products = [
-    { id: "fc-1888", name: "flux capacitor", averagerating: 4.5 },
-    { id: "fc-2050", name: "power laces", averagerating: 4.7 },
-    { id: "fs-1987", name: "time circuits", averagerating: 3.5 },
-    { id: "ac-2000", name: "low voltage reactor", averagerating: 3.9 },
-    { id: "jj-1969", name: "warp equalizer", averagerating: 5.0 }
-];
-
-// Populate the dropdown
 document.addEventListener("DOMContentLoaded", () => {
-    const productSelect = document.getElementById("product");
+    // Insert current year and last modified date into the footer
+    const currentYear = new Date().getFullYear();
+    const lastModifiedDate = document.lastModified;
+    const footer = document.querySelector("footer");
 
+    if (footer) {
+        const paragraphs = footer.querySelectorAll("p");
+        if (paragraphs.length > 0) {
+            paragraphs[0].textContent = `© ${currentYear} | NJIBIE Immanuel | Nigeria`;
+        }
+        if (paragraphs.length > 1) {
+            paragraphs[1].textContent = `Last Modified: ${lastModifiedDate}`;
+        }
+    }
+
+    // Populate the product dropdown
+    const products = [
+        { id: "fc-1888", name: "Flux Capacitor", averagerating: 4.5 },
+        { id: "fc-2050", name: "Power Laces", averagerating: 4.7 },
+        { id: "fs-1987", name: "Time Circuits", averagerating: 3.5 },
+        { id: "ac-2000", name: "Low Voltage Reactor", averagerating: 3.9 },
+        { id: "jj-1969", name: "Warp Equalizer", averagerating: 5.0 }
+    ];
+
+    const productSelect = document.getElementById("product");
     if (productSelect) {
         products.forEach(product => {
             const option = document.createElement("option");
@@ -36,15 +33,37 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Update review counter
-    if (window.location.href.includes("review.html")) {
-        let reviewCount = localStorage.getItem("reviewCount") || 0;
-        reviewCount = parseInt(reviewCount) + 1;
+    // Handle form submission and save to localStorage
+    const quoteForm = document.getElementById("quoteForm");
+    if (quoteForm) {
+        quoteForm.addEventListener("submit", (event) => {
+            event.preventDefault(); // Prevent form reload
+
+            const formData = new FormData(quoteForm);
+            const formObject = {};
+
+            formData.forEach((value, key) => {
+                if (formObject[key]) {
+                    formObject[key] = [].concat(formObject[key], value);
+                } else {
+                    formObject[key] = value;
+                }
+            });
+
+            localStorage.setItem("quoteFormData", JSON.stringify(formObject));
+            alert("Form data saved!");
+        });
+    }
+
+    // Review page logic
+    if (window.location.pathname.includes("review.html")) {
+        let reviewCount = parseInt(localStorage.getItem("reviewCount")) || 0;
+        reviewCount++;
         localStorage.setItem("reviewCount", reviewCount);
 
-        // Display the counter (assuming there's an element to show it)
         const counterDisplay = document.createElement("p");
-        counterDisplay.textContent = `You have submitted ${reviewCount} reviews.`;
+        counterDisplay.textContent = `You have submitted ${reviewCount} review${reviewCount !== 1 ? "s" : ""}.`;
         document.body.appendChild(counterDisplay);
     }
 });
+  
