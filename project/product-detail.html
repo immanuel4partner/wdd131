@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View detailed information about our plastic products">
-    <meta name="author" content="NJIBIE Immanuel">
-    <title>Product Detail | DMCleaning Tools</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts/product-detail.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="View detailed information about our cleaning products" />
+    <meta name="author" content="NJIBIE Immanuel" />
+    <title>Product Detail | DM Cleaning Tools</title>
+    <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 768px)" />
+    <link rel="stylesheet" href="styles/desktop.css" media="(min-width: 769px)" />
+    <script defer src="scripts/scripts.js"></script>
 </head>
+
 <body>
     <header>
-        <h1>DM Cleaning Tools Catalog</h1>
-        <nav>
+        <div class="header-container">
+            <h1>DM Cleaning Tools Catalog</h1> <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </div>
+        <nav id="mobile-menu" class="hidden">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
@@ -22,8 +27,9 @@
     </header>
 
     <main>
-        <section class="product-detail">
-            <img id="product-image" src="" alt="Product Image">
+        <section class="product-detail"> 
+            <img id="product-image" src="" alt="Product Image" loading="lazy" />
+            <img id="product-image" src="" alt="Product Image" />
             <h2 id="product-name">Loading...</h2>
             <p><strong>Category:</strong> <span id="product-category"></span></p>
             <p><strong>Specifications:</strong> <span id="product-specs"></span></p>
@@ -31,7 +37,9 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Datametro Cleaning Tools. All rights reserved.</p>
+        <p id="year"> &copy; <span id="currentyear"></span> NJIBIE Immanuel, Nigeria </p>
+        <p id="lastModified"></p>
     </footer>
 </body>
+
 </html>

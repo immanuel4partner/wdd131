@@ -1,19 +1,12 @@
-// Get the current year
-const currentYear = new Date().getFullYear();
-
-// Insert current year into the first <p> in the footer
-const footer = document.querySelector("footer");
-const firstPara = footer.querySelector("p");
-firstPara.textContent = `© ${currentYear} | NJIBIE Immanuel | Nigeria`;
-
-// Get the last modified date of the document
-const lastModifiedDate = document.lastModified;
-
-// Insert last modified date into the second <p> in the footer
-const secondPara = footer.querySelectorAll("p")[1];
-secondPara.textContent = `Last Modified: ${lastModifiedDate}`;
-
 document.addEventListener("DOMContentLoaded", () => {
+  const currentYear = new Date().getFullYear();
+  const footer = document.querySelector("footer");
+  const yearSpan = footer.querySelector("#currentyear");
+  const lastModified = footer.querySelector("#lastModified");
+
+  if (yearSpan) yearSpan.textContent = currentYear;
+  if (lastModified) lastModified.textContent = `Last Modified: ${document.lastModified}`;
+
   const productList = document.getElementById("product-list");
   const featuredContainer = document.querySelector(".product-grid");
   const categoryFilter = document.getElementById("categoryFilter");
@@ -22,17 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("quoteForm");
   const detailName = document.getElementById("product-name");
 
-  // Category logic
-  function getCategoryById(id) {
-    if (id >= 1 && id <= 5) return "Industrial";
-    if (id >= 6 && id <= 10) return "Papers";
-    if (id >= 11 && id <= 15) return "Chemical";
-    if (id >= 16 && id <= 20) return "Recycling";
-    if (id >= 21 && id <= 25) return "Pest Control";
+  const getCategoryById = (id) => {
+    if (id <= 5) return "Industrial";
+    if (id <= 10) return "Papers";
+    if (id <= 15) return "Chemical";
+    if (id <= 20) return "Recycling";
+    if (id <= 25) return "Pest Control";
     return "Misc";
-  }
+  };
 
-  // Create product data
   const productNames = [
     "Orbis uhs Cordless Burnisher",
     "BD-50-60-C-Ep-Classic",
@@ -58,130 +49,106 @@ document.addEventListener("DOMContentLoaded", () => {
     "PMPBP-Ergo-Backpack-Vacuum-Blower",
     "Solo 425 Backpack Pump Sprayer - 90 PSI",
     "Harris-Bed-Bug-Killer",
-    "6-Quart-Backpack-Vacuum-Pest-Control-Kit",
+    "6-Quart-Backpack-Vacuum-Pest-Control-Kit"
   ];
-  
 
-  const products = Array.from({ length: 25 }, (_, i) => {
-    const id = i + 1;
-    return {
-      id,
-        name: productNames[i],
-      category: getCategoryById(id),
-      specs: ["Durable", "Lightweight", "Eco-friendly"],
-      image: `images/product${id}.webp`,
-    };
-  });
+  const products = productNames.map((name, index) => ({
+    id: index + 1,
+    name,
+    category: getCategoryById(index + 1),
+    specs: ["Durable", "Lightweight", "Eco-friendly"],
+    image: `images/product${index + 1}.webp`
+  }));
 
-  function renderProducts(list, container) {
+  const renderProducts = (list, container) => {
     container.innerHTML = list
       .map(
-        (product) => `
-        <div class="product-card">
-          <img src="${product.image}" alt="${product.name}" loading="lazy" />
-          <h3><a href="product-detail.html?id=${product.id}">${product.name}</a></h3>
-          <p>Category: ${product.category}</p>
-          <button onclick="addToFavorites(${product.id})">Add to Favorites</button>
-        </div>
-      `
+        (p) => `
+      <div class="product-card">
+        <img src="${p.image}" alt="${p.name}" loading="lazy"
+             onerror="this.onerror=null; this.src='images/placeholder.webp'; console.warn('Missing image:', '${p.image}')">
+        <h3><a href="product-detail.html?id=${p.id}">${p.name}</a></h3>
+        <p>Category: ${p.category}</p>
+        <button onclick="addToFavorites(${p.id})">Add to Favorites</button>
+      </div>`
       )
       .join("");
-  }
+  };
 
-  // Homepage
   if (featuredContainer && !productList) {
-    const featured = products.slice(0, 3);
-    renderProducts(featured, featuredContainer);
+    renderProducts(products.slice(0, 3), featuredContainer);
   }
 
-  // Product List Page
   if (productList) {
     renderProducts(products, productList);
+    categoryFilter?.addEventListener("change", () => {
+      const selected = categoryFilter.value.toLowerCase();
+      const filtered =
+        selected === "all"
+          ? products
+          : products.filter((p) =>
+            p.category.toLowerCase().includes(selected)
+          );
+      renderProducts(filtered, productList);
+    });
+  }
 
-    if (categoryFilter) {
-      categoryFilter.addEventListener("change", () => {
-        const selected = categoryFilter.value;
-        const filtered =
-          selected === "all"
-            ? products
-            : products.filter((p) =>
-                p.category.toLowerCase().includes(selected.toLowerCase())
-              );
-        renderProducts(filtered, productList);
-      });
+  if (detailName) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get("id"));
+    const product = products.find((p) => p.id === id);
+
+    if (product) {
+      detailName.textContent = product.name;
+      const img = document.getElementById("product-image");
+      img.src = product.image;
+      img.alt = product.name;
+      img.onerror = () => {
+        img.src = "images/placeholder.webp";
+        console.warn("Missing detail image:", product.image);
+      };
+      document.getElementById("product-category").textContent =
+        product.category;
+      document.getElementById("product-specs").textContent =
+        product.specs.join(", ");
+    } else {
+      detailName.textContent = "Product not found.";
     }
   }
 
-  // Product Detail Page
-  if (detailName) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = parseInt(urlParams.get("id"));
-    const product = products.find((p) => p.id === productId) || products[0];
-    detailName.textContent = product.name;
-    document.getElementById("product-description").textContent =
-      "Example specs: " + product.specs.join(", ");
-    document.getElementById("product-image").src = product.image;
-    document.getElementById("product-category").textContent = product.category;
-  }
-
-  // Quote Form
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const confirmation = document.getElementById("confirmation");
-      if (confirmation) {
-        confirmation.classList.remove("hidden");
-        form.reset();
-      }
+      confirmation?.classList.remove("hidden");
+      form.reset();
     });
   }
 
-  // Hamburger Menu
+  toggleBtn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    toggleBtn.innerHTML = menu?.classList.contains("hidden") ? "&#9776;" : "&#10006;";
+  });
 
-  if (window.innerWidth >= 769) {
-    toggleBtn.style.display = "none"; // Hide hamburger on desktop
-    menu.classList.add("hidden"); // Ensure mobile menu stays hidden
-  }
-
-  if (toggleBtn && menu) {
-    toggleBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-      toggleBtn.innerHTML = menu.classList.contains("hidden")
-        ? "&#9776;"
-        : "&#10006;";
-    });
-  }
-
-  // Highlight Current Page
   const links = document.querySelectorAll("nav a");
   const current = window.location.pathname.split("/").pop();
-
   links.forEach((link) => {
     if (link.getAttribute("href") === current) {
       link.classList.add("active");
     }
   });
+
+  const storedFavorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  console.log("User's favorite products:", storedFavorites);
 });
 
-
-// Favorites functionality
-function addToFavorites(productId) {
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  // Check if the product is already saved
-  if (!favorites.includes(productId)) {
-      favorites.push(productId);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-      alert("Product added to favorites!");
+function addToFavorites(id) {
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  if (!favorites.includes(id)) {
+    favorites.push(id);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    alert("Product added to favorites!");
   } else {
-      alert("Already in favorites!");
+    alert("Already in favorites!");
   }
 }
-
-// Load favorites on page load (Optional)
-document.addEventListener("DOMContentLoaded", () => {
-  const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  console.log("User's favorite products:", storedFavorites); // Debugging purposes
-});
-
-
