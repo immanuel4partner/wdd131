@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Explore Cleaning Tools: Scrubbers, Pressure Washers, Weepers, Blowers and lots more." />
+  <meta name="description" content="Explore Cleaning Tools: Scrubbers, Pressure Washers, Weepers, Blowers and more." />
   <meta name="author" content="NJIBIE Immanuel" />
   <title>Products | DM Cleaning Tools Catalog</title>
+
   <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 768px)" />
   <link rel="stylesheet" href="styles/desktop.css" media="(min-width: 769px)" />
   <script defer src="scripts/scripts.js"></script>
@@ -16,42 +16,60 @@
 <body>
   <header>
     <div class="header-container">
-      <h1>DM Cleaning Tools Catalog</h1> <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <h1>DM Cleaning Tools Catalog</h1>
+      <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="contact.html" class="nav-link">Quote Request</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
     <nav id="mobile-menu" class="hidden">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Quote Request</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="contact.html" class="nav-link">Quote Request</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <div class="hero-section"> 
-      <img src="images/hero-image2.webp" alt="DM Tools Hero Image" loading="lazy">
-      <img src="images/hero-image2.webp" alt="DM Tools Hero Image" loading="lazy">
-      >
+    <div class="hero-section">
+      <img src="images/hero-image2.webp" alt="DM cleaning tools in use" loading="lazy" />
+      <img src="images/hero-image2.webp" alt="DM cleaning tools collection display" loading="lazy" />
 
       <div class="hero-text" style="max-width: 90%; word-wrap: break-word;">
-        <p>Your High quality Cleaning Products.</p> <a href="products.html" class="cta-button">Explore Products</a>
+        <p>Your high-quality cleaning products.</p>
+        <a href="products.html" class="cta-button">Explore Products</a>
       </div>
     </div>
 
-    <section class="filters"> <label for="categoryFilter">Filter by Category:</label> <select id="categoryFilter">
+    <section class="filters">
+      <label for="categoryFilter">Filter by Category:</label>
+      <select id="categoryFilter">
         <option value="all">All</option>
         <option value="papers">Paper Products</option>
         <option value="chemical">Chemical Products</option>
-        <option value="recycling">Waste & Recycling Container</option>
+        <option value="recycling">Waste & Recycling Containers</option>
         <option value="pest">Pest Control</option>
-      </select> </section>
+      </select>
+    </section>
 
-    <section id="product-list" class="product-grid"> <!-- Products dynamically loaded via JavaScript --> </section>
+    <section id="product-list" class="product-grid">
+      <!-- Products dynamically loaded via JavaScript -->
+    </section>
   </main>
 
   <footer>
-    <p id="year"> &copy; <span id="currentyear"></span> NJIBIE Immanuel, Nigeria </p>
+    <p id="year">&copy; <span id="currentyear"></span> NJIBIE Immanuel, Nigeria</p>
     <p id="lastModified"></p>
   </footer>
 </body>
+
 </html>
