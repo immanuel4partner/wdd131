@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore Cleaning Tools: Scrubbers, Pressure Washers, Weepers, Blowers and more." />
+  <meta name="description" content="Request a quote or contact DM Cleaning Tools for more information." />
   <meta name="author" content="NJIBIE Immanuel" />
-  <title>Products | DM Cleaning Tools Catalog</title>
+  <title>Quote Request | DM Cleaning Tools Catalog</title>
 
   <link rel="stylesheet" href="styles/mobile.css" media="(max-width: 768px)" />
   <link rel="stylesheet" href="styles/desktop.css" media="(min-width: 769px)" />
@@ -40,29 +40,30 @@
   </header>
 
   <main>
-    <div class="hero-section">
-      <img src="images/hero-image2.webp" alt="DM cleaning tools in use" loading="lazy" />
-      <img src="images/hero-image2.webp" alt="DM cleaning tools collection display" loading="lazy" />
-
+    <section class="hero-section">
+      <img src="images/hero-image2.webp" alt="Contact DM Cleaning Tools" loading="lazy" />
       <div class="hero-text" style="max-width: 90%; word-wrap: break-word;">
-        <p>Your high-quality cleaning products.</p>
-        <a href="products.html" class="cta-button">Explore Products</a>
+        <p>Request a quote or reach out to us directly.</p>
       </div>
-    </div>
-
-    <section class="filters">
-      <label for="categoryFilter">Filter by Category:</label>
-      <select id="categoryFilter">
-        <option value="all">All</option>
-        <option value="papers">Paper Products</option>
-        <option value="chemical">Chemical Products</option>
-        <option value="recycling">Waste & Recycling Containers</option>
-        <option value="pest">Pest Control</option>
-      </select>
     </section>
 
-    <section id="product-list" class="product-grid">
-      <!-- Products dynamically loaded via JavaScript -->
+    <section class="contact-form">
+      <h2>Quote Request Form</h2>
+      <form action="submit-form.php" method="POST">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="product">Product of Interest:</label>
+        <input type="text" id="product" name="product" />
+
+        <label for="message">Additional Details:</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+
+        <button type="submit" class="cta-button">Submit Request</button>
+      </form>
     </section>
   </main>
 
