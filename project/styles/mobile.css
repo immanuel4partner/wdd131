@@ -92,6 +92,10 @@ h2 {
     margin: 2rem auto;
 }
 
+.hidden {
+    display: none;
+}
+
 /* PRODUCT GRID */
 .product-grid {
     display: flex;
@@ -126,6 +130,18 @@ h2 {
     color: #1A237E;
 }
 
+.product-detail h2 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #1A237E;
+}
+
+.product-detail img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 1rem;
+}
 /* FORM STYLES */
 form {
     display: flex;
