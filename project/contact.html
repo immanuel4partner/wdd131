@@ -15,8 +15,20 @@
 <body>
   <header>
     <div class="header-container">
-      <h1>DM Cleaning Tools Catalog</h1> <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <h1>DM Cleaning Tools Catalog</h1>
+      <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Quote Request</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
     <nav id="mobile-menu" class="hidden">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -25,83 +37,118 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <div class="hero-section"> <img src="images/hero-image3.webp" alt="DM Tools Hero Image" loading="lazy">
+    <div class="hero-section">
+      <img src="images/hero-image3.webp" alt="DM Tools Hero Image" loading="lazy">
       <div class="hero-text">
-        <p>Your High quality Cleaning Products.</p> <a href="products.html" class="cta-button">Explore Products</a>
+        <p>Your High quality Cleaning Products.</p>
+        <a href="products.html" class="cta-button">Explore Products</a>
       </div>
     </div>
-    <main>
-      <section>
-        <h2>Contact Us</h2>
-        <p>Email: <a href="mailto: admin@dmcleaningtools.com">admin@dmcleaningtools.com</a></p>
-        <p>Phone: +234-707-787-7876</p>
-      </section>
-      <section>
-        <h2>Quote Request Form</h2>
-        <form id="quoteForm" method="get" action="review.html"> <label for="name">Full Name:</label> <input type="text"
-            id="name" name="name" required> <label for="email">Email Address:</label> <input type="email" id="email"
-            name="email" required> <label>Product(s) Interested In:</label>
-          <fieldset>
-            <legend>Industrial Equipments</legend> <label><input type="checkbox" name="products[]"
-                value="Orbis-uhs-Cordless-Burnisher"> orbis-uhs-cordless-burnisher</label><br> <label><input
-                type="checkbox" name="products[]" value="BD-50-60-C-Ep-Classic"> BD-50-60-C-Ep-Classic</label><br>
-            <label><input type="checkbox" name="products[]" value="Orbis uhs-1500 Folding Handle"> Orbis uhs-1500
-              Folding Handle</label><br> <label><input type="checkbox" name="products[]"
-                value="BD-5070-R-Classic-Bp-Pack"> BD-5070-R-Classic-Bp-Pack</label><br> <label><input type="checkbox"
-                name="products[]" value="Karcher-Pressure-Washer"> Karcher-Pressure-Washer</label>
-          </fieldset>
-          <fieldset>
-            <legend>Paper Products</legend> <label><input type="checkbox" name="products[]"
-                value="Blue C Fold Hand Towels 1PLY X 2400"> Blue C Fold Hand Towels 1PLY X 2400</label><br>
-            <label><input type="checkbox" name="products[]" value="BulkySoft Comfort Maxi Jumbo Toilet Paper"> BulkySoft
-              Comfort Maxi Jumbo Toilet Paper 6 X 300M</label><br> <label><input type="checkbox" name="products[]"
-                value="Tork T8 Smart One Toilet Rolls 6 X 200M"> Tork T8 Smart One Toilet Rolls 6 X 200M</label><br>
-            <label><input type="checkbox" name="products[]" value="Katrin System Toilet-roll Dispenser"> katrin System
-              Toilet-roll Dispenser</label><br> <label><input type="checkbox" name="products[]"
-                value="Modular Multiflat Tissue Dispenser"> Modular Multiflat Tissue Dispenser</label>
-          </fieldset>
-          <fieldset>
-            <legend>Chemical Products</legend> <label><input type="checkbox" name="products[]"
-                value="Rug Doctor Professional Carpet Detergent 5L"> Rug Doctor Professional Carpet Detergent
-              5L</label><br> <label><input type="checkbox" name="products[]" value="Clover Phos Descaler (5L)"> Clover
-              Phos Descaler (5L)"</label><br> <label><input type="checkbox" name="products[]"
-                value="Clover Breaker Descaler/Cleaner (5L)"> Clover Breaker Descaler/Cleaner (5L)</label><br>
-            <label><input type="checkbox" name="products[]" value="Clover 306 Comet Carpet Cleaner (5L)"> Clover 306
-              Comet Carpet Cleaner (5L)</label><br> <label><input type="checkbox" name="products[]"
-                value="Viakal Toilet & Washroom Descaler (750ML)"> Foam Board</label>
-          </fieldset>
-          <fieldset>
-            <legend>Recycling Products</legend> <label><input type="checkbox" name="products[]"
-                value="Eagle 943BIO, 945BIO, 947BIO Step On Biohazard Waste Containers"> Eagle 943BIO, 945BIO, 947BIO
-              Step On Biohazard Waste Containers</label><br> <label><input type="checkbox" name="products[]"
-                value="Reliance Sharps Bin"> Reliance Sharps Bin</label><br> <label><input type="checkbox"
-                name="products[]" value="N-swipes Industrial Wipers"> N-swipes Industrial Wipers</label><br>
-            <label><input type="checkbox" name="products[]" value="25L Mopping System With Gear Press Wringer"> 25L
-              Mopping System With Gear Press Wringer</label><br> <label><input type="checkbox" name="products[]"
-                value="Durable Metal Waste Bin with Fire Extinguishing Lid 30 Litre Black"> Durable Metal Waste Bin with
-              Fire Extinguishing Lid 30 Litre Black</label>
-          </fieldset>
-          <fieldset>
-            <legend>Pest Control Products</legend> <label><input type="checkbox" name="products[]"
-                value="Durable Sensor Waste Bin No Touch Square 12 Litre"> Durable Sensor Waste Bin No Touch Square 12
-              Litre</label><br> <label><input type="checkbox" name="products[]"
-                value="PMPBP-Ergo-Backpack-Vacuum-Blower"> PMPBP-Ergo-Backpack-Vacuum-Blower</label><br> <label><input
-                type="checkbox" name="products[]"
-                value="Solo 425 Backpack Pump Sprayer - 90 PSI""> Solo 425 Backpack Pump Sprayer - 90 PSI" </label><br>
-              <label><input type="checkbox" name="products[]" value="Harris-Bed-Bug-Killer">
-                Harris-Bed-Bug-Killer</label><br> <label><input type="checkbox" name="products[]"
-                  value="6-Quart-Backpack-Vacuum-Pest-Control-Kit"> 6-Quart-Backpack-Vacuum-Pest-Control-Kit</label>
-          </fieldset> <label for="message">Additional Notes (optional):</label> <textarea id="message"
-            name="message"></textarea> <button type="submit">Submit Request</button>
-          <p id="confirmation" class="hidden">Your quote request has been submitted. Thank you!</p>
-        </form>
-      </section>
-    </main>
-    <footer>
-      <p id="year"> &copy; <span id="currentyear"></span> NJIBIE Immanuel, Nigeria </p>
-      <p id="lastModified"></p>
-    </footer>
+
+    <section class="quote-section">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:admin@dmcleaningtools.com">admin@dmcleaningtools.com</a></p>
+      <p>Phone: +234-707-787-7876</p>
+
+      <h2>Quote Request Form</h2>
+      <form id="quoteForm" method="get" action="review.html">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Industrial Equipment Fieldset -->
+        <fieldset>
+          <legend>Industrial Equipments</legend>
+          <label><input type="checkbox" name="products[]" value="Orbis-uhs-Cordless-Burnisher">
+            orbis-uhs-cordless-burnisher</label><br>
+          <label><input type="checkbox" name="products[]" value="BD-50-60-C-Ep-Classic">
+            BD-50-60-C-Ep-Classic</label><br>
+          <label><input type="checkbox" name="products[]" value="Orbis uhs-1500 Folding Handle"> Orbis uhs-1500 Folding
+            Handle</label><br>
+          <label><input type="checkbox" name="products[]" value="BD-5070-R-Classic-Bp-Pack">
+            BD-5070-R-Classic-Bp-Pack</label><br>
+          <label><input type="checkbox" name="products[]" value="Karcher-Pressure-Washer">
+            Karcher-Pressure-Washer</label>
+        </fieldset>
+
+        <!-- Paper Products Fieldset -->
+        <fieldset>
+          <legend>Paper Products</legend>
+          <label><input type="checkbox" name="products[]" value="Blue C Fold Hand Towels 1PLY X 2400"> Blue C Fold Hand
+            Towels 1PLY X 2400</label><br>
+          <label><input type="checkbox" name="products[]" value="BulkySoft Comfort Maxi Jumbo Toilet Paper"> BulkySoft
+            Comfort Maxi Jumbo Toilet Paper 6 X 300M</label><br>
+          <label><input type="checkbox" name="products[]" value="Tork T8 Smart One Toilet Rolls 6 X 200M"> Tork T8 Smart
+            One Toilet Rolls 6 X 200M</label><br>
+          <label><input type="checkbox" name="products[]" value="katrin System Toilet-roll Dispenser"> katrin System
+            Toilet-roll Dispenser</label><br>
+          <label><input type="checkbox" name="products[]" value="Modular Multiflat Tissue Dispenser"> Modular Multiflat
+            Tissue Dispenser</label>
+        </fieldset>
+
+        <!-- Chemical Products Fieldset -->
+        <fieldset>
+          <legend>Chemical Products</legend>
+          <label><input type="checkbox" name="products[]" value="Rug Doctor Professional Carpet Detergent 5L"> Rug
+            Doctor Professional Carpet Detergent 5L</label><br>
+          <label><input type="checkbox" name="products[]" value="Clover Phos Descaler (5L)"> Clover Phos Descaler
+            (5L)</label><br>
+          <label><input type="checkbox" name="products[]" value="Clover Breaker Descaler/Cleaner (5L)"> Clover Breaker
+            Descaler/Cleaner (5L)</label><br>
+          <label><input type="checkbox" name="products[]" value="Clover 306 Comet Carpet Cleaner (5L)"> Clover 306 Comet
+            Carpet Cleaner (5L)</label><br>
+          <label><input type="checkbox" name="products[]" value="Viakal Toilet & Washroom Descaler (750ML)"> Viakal
+            Toilet & Washroom Descaler (750ML)</label>
+        </fieldset>
+
+        <!-- Recycling Products Fieldset -->
+        <fieldset>
+          <legend>Recycling Products</legend>
+          <label><input type="checkbox" name="products[]"
+              value="Eagle 943BIO, 945BIO, 947BIO Step On Biohazard Waste Containers"> Eagle 943BIO, 945BIO, 947BIO Step
+            On Biohazard Waste Containers</label><br>
+          <label><input type="checkbox" name="products[]" value="Reliance Sharps Bin"> Reliance Sharps Bin</label><br>
+          <label><input type="checkbox" name="products[]" value="N-swipes Industrial Wipers"> N-swipes Industrial
+            Wipers</label><br>
+          <label><input type="checkbox" name="products[]" value="25L Mopping System With Gear Press Wringer"> 25L
+            Mopping System With Gear Press Wringer</label><br>
+          <label><input type="checkbox" name="products[]"
+              value="Durable Metal Waste Bin with Fire Extinguishing Lid 30 Litre Black"> Durable Metal Waste Bin with
+            Fire Extinguishing Lid 30 Litre Black</label>
+        </fieldset>
+
+        <!-- Pest Control Products Fieldset -->
+        <fieldset>
+          <legend>Pest Control Products</legend>
+          <label><input type="checkbox" name="products[]" value="Durable Sensor Waste Bin No Touch Square 12 Litre">
+            Durable Sensor Waste Bin No Touch Square 12 Litre</label><br>
+          <label><input type="checkbox" name="products[]" value="PMPBP-Ergo-Backpack-Vacuum-Blower">
+            PMPBP-Ergo-Backpack-Vacuum-Blower</label><br>
+          <label><input type="checkbox" name="products[]" value="Solo 425 Backpack Pump Sprayer - 90 PSI"> Solo 425
+            Backpack Pump Sprayer - 90 PSI</label><br>
+          <label><input type="checkbox" name="products[]" value="Harris-Bed-Bug-Killer">
+            Harris-Bed-Bug-Killer</label><br>
+          <label><input type="checkbox" name="products[]" value="6-Quart-Backpack-Vacuum-Pest-Control-Kit">
+            6-Quart-Backpack-Vacuum-Pest-Control-Kit</label>
+        </fieldset>
+
+        <label for="message">Additional Notes (optional):</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit">Submit Request</button>
+        <p id="confirmation" class="hidden">Your quote request has been submitted. Thank you!</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p id="year">&copy; <span id="currentyear"></span> NJIBIE Immanuel, Nigeria</p>
+    <p id="lastModified"></p>
+  </footer>
 </body>
 
 </html>
